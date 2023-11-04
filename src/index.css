@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #050402;
+}
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+@layer components {
+  .btn {
+    @apply bg-orange-400 transition-all duration-300  text-white px-4 py-2;
+  }
+  .btn:hover {
+    @apply bg-orange-600;
+  }
+  /* ... */
+}
+.stroke {
+  font-size: 97px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #e3e3e30e;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 4px;
+  font-family: Impact, Charcoal, sans-serif;
+}
+@media (max-width: 600px) {
+  .stroke {
+    font-size: 70px;
+  }
+}
+swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
