@@ -1,4 +1,4 @@
 # React + Tailwind css
 
 This template build with react and tailwind css 
-<a href="https://6546c15f86d57257cd58751d--fastidious-taiyaki-1a6c4a.netlify.app/">DEMO</a>
+<a href="https://6508918aba445e2fee3ccd0e--admirable-sunflower-e89073.netlify.app/">DEMO</a>
