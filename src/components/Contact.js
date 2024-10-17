@@ -1,11 +1,11 @@
 import MainTitle from "./MainTitle";
-
+import { motion } from "framer-motion";
 const Contact = () => {
   return (
     <div id="contact" className="py-[100px]">
       <MainTitle title={"contact me"} stroke={"Contact Us"} />
       <div className="container flex flex-col md:flex-row  gap-10 text-white">
-        <div className="w-full md:w-[30%] mt-2">
+        <motion.div className="w-full  md:w-[30%] mt-2">
           <div className="flex gap-8 mb-10">
             <i class="fa-regular fa-envelope text-mainColor"></i>
             <div className="-mt-2">
@@ -28,7 +28,7 @@ const Contact = () => {
               </h3>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="w-full md:w-[70%]">
           <form className="w-full">
             <div className="flex items-center gap-5">

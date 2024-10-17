@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: #050402;
+  background-color: #111;
 }
 html {
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 @layer components {
@@ -38,14 +36,36 @@ swiper {
   padding-bottom: 50px;
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
-
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+.swiper {
+  width: 100%;
+  height: 200% !important;
+  position: unset !important;
+}
+.swiper-slide {
+  height: auto !important;
+}
+.swipercont {
+  position: relative;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  user-select: none;
+  top: -34px !important;
+  color: black !important;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+  margin: 0px !important;
+}
+.swiper-button-prev {
+  left: unset !important;
+  right: 40px !important;
+}
+.c1:nth-child(even) {
+  background-color: red;
 }

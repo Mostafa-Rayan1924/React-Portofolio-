@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "../img/logo.svg";
 import { useEffect, useRef, useState } from "react";
 import Social from "./Social";
@@ -11,6 +11,10 @@ const Navbar = () => {
     "testimonials",
     "contact",
   ]);
+  let child = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+  };
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -25,7 +29,7 @@ const Navbar = () => {
   return (
     <header
       ref={headerRef}
-      className="py-6 fixed top-0 left-0 w-full text-white transition-all duration-300  ">
+      className="py-6 z-40 shadow border-b border-zinc-900/20 fixed top-0 left-0 w-full text-white transition-all duration-300  ">
       <div className="container flex justify-between items-center ">
         <h1>
           <img className="sm:w-[100px] md:w-[172px]" src={logo} alt="logo" />
@@ -39,29 +43,40 @@ const Navbar = () => {
             <i class="fa-solid fa-bars-staggered text-3xl"></i>
           </span>
           {/* mobile */}
-          <ul
-            className={`fixed  ${
-              openLinks ? "top-0" : "top-[-400%]"
-            } p-10 text-center bg-mainColor/70 text-white left-0 w-full   h-full  flex flex-col items-center justify-center sm:hidden gap-6 transition-all duration-1000`}>
-            {links.map((item, index) => {
-              return (
-                <li key={index}>
-                  <a
-                    className="capitalize  hover:border-b-2  hover:border-white  p-2"
-                    href={"#" + item}>
-                    {item}
-                  </a>
-                </li>
-              );
-            })}
-            <span
-              className="text-4xl absolute top-10 right-10 cursor-pointer"
-              onClick={() => {
-                setOpenLinks(false);
-              }}>
-              <i class="fa-solid fa-circle-xmark"></i>
-            </span>
-          </ul>
+          <AnimatePresence>
+            {openLinks ? (
+              <motion.ul
+                initial={{ top: "100%" }}
+                animate={{ top: 0 }}
+                exit={{ top: "100%" }}
+                className={`fixed  p-10 text-center bg-mainColor/70 text-white left-0 w-full   h-full  flex flex-col items-center justify-center sm:hidden gap-6 `}>
+                {links.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <motion.a
+                        variants={child}
+                        initial="initial"
+                        animate="animate"
+                        transition={{ duration: 0.3, delay: index * 0.3 }}
+                        className="capitalize  hover:border-b-2  hover:border-white  p-2"
+                        href={"#" + item}>
+                        {item}
+                      </motion.a>
+                    </li>
+                  );
+                })}
+                <span
+                  className="text-4xl absolute top-10 right-10 cursor-pointer"
+                  onClick={() => {
+                    setOpenLinks(false);
+                  }}>
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </span>
+              </motion.ul>
+            ) : (
+              ""
+            )}
+          </AnimatePresence>
         </div>
         <ul className="hidden sm:flex gap-6">
           {links.map((item, index) => {
