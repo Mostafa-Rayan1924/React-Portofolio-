@@ -15,15 +15,15 @@ const Navbar = () => {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        headerRef.current.style.background = "#131419";
-      } else {
-        headerRef.current.style.background = "transparent";
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (window.scrollY > 100) {
+  //       headerRef.current.style.background = "#131419";
+  //     } else {
+  //       headerRef.current.style.background = "transparent";
+  //     }
+  //   });
+  // }, []);
   let headerRef = useRef();
   let [openLinks, setOpenLinks] = useState(false);
   return (
